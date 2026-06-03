@@ -133,3 +133,28 @@ Fmenu=Group(
     Label('No GPA boost for Honors and AP classes', 200,350, fill='white', size=20),
     )
 Fmenu.visible=False
+
+app.colors=['lightgray','lightblue','orange','crimson','black']
+
+ExitButton=Group(
+    Rect(350,11,40,40,fill='Red')
+    )
+ExitButton.visible=False
+
+menus=[Amenu,Aminusmenu,Bplusmenu,Bmenu,Bminusmenu,Cplusmenu,Cmenu,Cminusmenu,Dplusmenu,Dmenu,Dminusmenu,Fmenu]
+def cycleColors(colorList):
+    if(Title.visible==False):
+        for i in range(len(colorList)):
+            currentColor=colorList[i]
+            if(currentColor=='lightgray'):
+                colorList[i]='lightblue'
+            elif(currentColor=='lightblue'):
+                colorList[i]='orange'
+            elif(currentColor=='orange'):
+                colorList[i]='crimson'
+            elif(currentColor=='crimson'):
+                colorList[i]='black'
+            else:
+                colorList[i]='lightgray'
+    for menu in menus:
+        menu.children[0].fill=app.colors[0]
